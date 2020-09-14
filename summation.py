@@ -2,12 +2,12 @@ def summation(list_1 = None , type_var = None):
     if list_1:
         result = type_var()
         print(result.r)
-        if '__add__' not in dir(type_var):
+        if not hasattr(type_var , '__add__'):
             raise TypeError('unsupported operand type for + : ' + str(type_var))
 
         for element in list_1:
             if isinstance(element,type_var):
-                    result = element + result
+                    result =result + element  
                     #result += element                    
         return result
     else:
